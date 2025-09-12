@@ -1,0 +1,63 @@
+{
+  "name": "arbitration-center-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Международный центр арбитражных решений - официальный сайт",
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "lucide-react": "^0.263.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "арбитраж",
+    "суд",
+    "правосудие",
+    "астана",
+    "казахстан",
+    "международный центр"
+  ],
+  "author": {
+    "name": "Международный центр арбитражных решений",
+    "email": "arbitragerk.kz@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/arbitration-center-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/arbitration-center-website/issues"
+  },
+  "homepage": "https://arbitragerk.kz"
+}

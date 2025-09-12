@@ -1,0 +1,59 @@
+# Зависимости
+# Папка с установленными пакетами, которые можно восстановить с помощью 'npm install'
+/node_modules
+
+# Сборка проекта
+# Папки с готовыми файлами для продакшена (могут называться по-разному)
+/build
+/dist
+/.svelte-kit
+/.output
+/.next
+
+# Логи
+# Файлы логов, которые генерируются во время работы
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Файлы окружения
+# Никогда не добавляйте эти файлы в репозиторий, они содержат секретные ключи и пароли!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# Файлы IDE и редакторов кода
+# Настройки для конкретного разработчика не должны быть в общем репозитории
+.idea
+.vscode/*
+!.vscode/extensions.json
+.project
+.settings
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Файлы операционной системы
+# Служебные файлы macOS, Windows и Linux
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Отчеты о покрытии тестами
+/coverage
+/lcov-report
+
+# Кэш
+.npm
+.eslintcache
+.vite
+.cache
