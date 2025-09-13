@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Сервис для бэкенда (FastAPI)
+  backend:
+    build: ./backend
+    container_name: arbitrage-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+
+  # Сервис для фронтенда (React + Nginx)
+  frontend:
+    build: ./frontend
+    container_name: arbitrage-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

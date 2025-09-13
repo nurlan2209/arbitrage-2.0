@@ -1,0 +1,11 @@
+fastapi==0.104.1
+uvicorn==0.23.2
+python-dotenv==1.0.0
+fastapi-admin==1.0.4
+python-telegram-bot==20.6
+httpx==0.25.0
+SQLAlchemy==1.4.47
+aioredis==2.0.1
+async-timeout==4.0.3
+tortoise-orm==0.19.3
+pydantic==1.10.13
