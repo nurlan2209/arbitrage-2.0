@@ -8,6 +8,31 @@ const Header = ({ currentPage, setCurrentPage }) => {
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isDocumentsDropdownOpen, setIsDocumentsDropdownOpen] = useState(false);
 
+  const documentGroups = {
+    group1: {
+      title: t("nav_group_procedures"),
+      items: [
+        { key: "reglament", label: t("nav_reglament") },
+        { key: "sborahi", label: t("nav_sborahi") },
+        { key: "reestr", label: t("nav_reestr") },
+        { key: "porpod", label: t("nav_porpod") },
+        { key: "porrasarb", label: t("nav_porrasarb") },
+        { key: "poroznom", label: t("nav_poroznom") },
+      ],
+    },
+    group2: {
+      title: t("nav_group_samples"),
+      items: [
+        { key: "schema", label: t("nav_schema") },
+        { key: "sogl", label: t("nav_sogl") },
+        { key: "obrazcy", label: t("nav_obrazcy") },
+        { key: "pogashenie", label: t("nav_pogashenie") },
+        { key: "isk_edin_arbitr", label: t("nav_isk_edin_arbitr") },
+        { key: "otzyv_isk", label: t("nav_otzyv_isk") },
+      ],
+    },
+  };
+
   const navItems = [
     { key: "home", label: t("nav_main") },
     { key: "about", label: t("nav_about") },
@@ -15,19 +40,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
       key: "documents",
       label: t("nav_documents"),
       isDropdown: true,
-      dropdownItems: [
-        { key: "reglament", label: t("nav_reglament") },
-        { key: "sborahi", label: t("nav_sborahi") },
-        { key: "reestr", label: t("nav_reestr") },
-        { key: "sogl", label: t("nav_sogl") },
-        { key: "obrazcy", label: t("nav_obrazcy") },
-        { key: "pogashenie", label: t("nav_pogashenie") },
-        { key: "isk_edin_arbitr", label: t("nav_isk_edin_arbitr") },
-        { key: "otzyv_isk", label: t("nav_otzyv_isk") },
-        { key: "poroznom", label: t("nav_poroznom") },
-        { key: "porpod", label: t("nav_porpod") },
-        { key: "porrasarb", label: t("nav_porrasarb") }, // <-- ДОБАВЛЕНА НОВАЯ СТРАНИЦА
-      ],
+      dropdownGroups: documentGroups,
     },
     { key: "news", label: t("nav_news") },
     { key: "contact", label: t("nav_contacts") },
@@ -37,6 +50,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
     { code: "ru", label: "Русский" },
     { code: "en", label: "English" },
     { code: "kz", label: "Қазақша" },
+  ];
+
+  const allDropdownItems = [
+    ...documentGroups.group1.items,
+    ...documentGroups.group2.items,
   ];
 
   return (
@@ -78,19 +96,30 @@ const Header = ({ currentPage, setCurrentPage }) => {
                     </button>
 
                     {isDocumentsDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border py-2 min-w-48 z-10">
-                        {item.dropdownItems.map((subItem) => (
-                          <button
-                            key={subItem.key}
-                            onClick={() => {
-                              setCurrentPage(subItem.key);
-                              setIsDocumentsDropdownOpen(false);
-                            }}
-                            className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors"
-                          >
-                            {subItem.label}
-                          </button>
-                        ))}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white shadow-xl rounded-lg border p-4 z-10 w-max">
+                        <div className="flex space-x-8">
+                          {Object.values(item.dropdownGroups).map((group) => (
+                            <div key={group.title} className="flex-1">
+                              <h3 className="font-bold text-blue-900 px-4 pb-2 mb-2 border-b">
+                                {group.title}
+                              </h3>
+                              <div className="flex flex-col">
+                                {group.items.map((subItem) => (
+                                  <button
+                                    key={subItem.key}
+                                    onClick={() => {
+                                      setCurrentPage(subItem.key);
+                                      setIsDocumentsDropdownOpen(false);
+                                    }}
+                                    className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors rounded-md"
+                                  >
+                                    {subItem.label}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -176,7 +205,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
                       </button>
                       {isDocumentsDropdownOpen && (
                         <div className="ml-4 mt-2 space-y-1">
-                          {item.dropdownItems.map((subItem) => (
+                          {allDropdownItems.map((subItem) => (
                             <button
                               key={subItem.key}
                               onClick={() => {

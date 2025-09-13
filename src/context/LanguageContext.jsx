@@ -17,7 +17,8 @@ const translations = {
     nav_otzyv_isk: "Отзыв на иск",
     nav_poroznom: "Порядок ознакомления",
     nav_porpod: "Порядок подачи иска",
-    nav_porrasarb: "Порядок рассмотрения дел", // <-- НОВЫЙ ПЕРЕВОД
+    nav_porrasarb: "Порядок рассмотрения дел",
+    nav_schema: "Этапы прохождения дела", // <-- НОВЫЙ ПЕРЕВОД
     nav_news: "Новости",
     nav_contacts: "Контакты",
     hero_title: "Международный центр Арбитражных решений",
@@ -415,6 +416,25 @@ const translations = {
       "Прекращение разбирательства и исполнение решения.",
     // --- КОНЕЦ: Переводы для страницы Порядка рассмотрения дел ---
 
+    // --- НАЧАЛО: Переводы для страницы Этапы прохождения дела ---
+    schema_title: "Этапы прохождения арбитражного дела",
+    schema_subtitle: "Наглядная схема процесса арбитражного разбирательства",
+    schema_benefit1_title: "Наглядность",
+    schema_benefit1_desc: "Простая и понятная схема всего процесса.",
+    schema_benefit2_title: "Ключевые этапы",
+    schema_benefit2_desc: "Выделение основных стадий разбирательства.",
+    schema_benefit3_title: "Сроки",
+    schema_benefit3_desc: "Ориентировочные сроки для каждого этапа.",
+    schema_benefit4_title: "Действия сторон",
+    schema_benefit4_desc: "Что требуется от истца и ответчика на каждом шаге.",
+    schema_info_title: "Информация о документе",
+    schema_info_name: "Этапы прохождения арбитражного дела",
+    schema_info_status: "Информационная схема",
+    schema_info_purpose_title: "Назначение документа",
+    schema_info_purpose_desc:
+      "Визуализация процесса арбитражного разбирательства для лучшего понимания.",
+    // --- КОНЕЦ: Переводы для страницы Этапы прохождения дела ---
+
     // Общие переводы для документов
     document_view: "Просмотр документа",
     document_loading: "Загрузка документа...",
@@ -444,6 +464,9 @@ const translations = {
       "Принятие, форма и исправление арбитражных решений",
     reglament_section6_title: "VI. Исполнение решений",
     reglament_section6_desc: "Добровольное и принудительное исполнение решений",
+
+    nav_group_procedures: "Основные документы и процедуры",
+    nav_group_samples: "Образцы и шаблоны",
   },
   en: {
     page_title_main: "Home | International Center for Arbitration Solutions",
@@ -461,7 +484,8 @@ const translations = {
     nav_otzyv_isk: "Response to Claim",
     nav_poroznom: "Case materials review",
     nav_porpod: "Claim submission procedure",
-    nav_porrasarb: "Case review procedure", // <-- NEW TRANSLATION
+    nav_porrasarb: "Case review procedure",
+    nav_schema: "Arbitration case stages", // <-- NEW TRANSLATION
     nav_news: "News",
     nav_contacts: "Contacts",
     hero_title: "International Center for Arbitration Solutions",
@@ -859,6 +883,26 @@ const translations = {
       "Termination of the proceedings and enforcement of the award.",
     // --- END: Translations for Case review procedure page ---
 
+    // --- START: Translations for Arbitration case stages page ---
+    schema_title: "Stages of an arbitration case",
+    schema_subtitle: "A visual diagram of the arbitration proceedings process",
+    schema_benefit1_title: "Clarity",
+    schema_benefit1_desc: "A simple and clear diagram of the entire process.",
+    schema_benefit2_title: "Key stages",
+    schema_benefit2_desc: "Highlighting the main stages of the proceedings.",
+    schema_benefit3_title: "Timelines",
+    schema_benefit3_desc: "Estimated timelines for each stage.",
+    schema_benefit4_title: "Actions of the parties",
+    schema_benefit4_desc:
+      "What is required from the claimant and respondent at each step.",
+    schema_info_title: "Document Information",
+    schema_info_name: "Stages of an arbitration case",
+    schema_info_status: "Information diagram",
+    schema_info_purpose_title: "Document Purpose",
+    schema_info_purpose_desc:
+      "Visualization of the arbitration process for better understanding.",
+    // --- END: Translations for Arbitration case stages page ---
+
     // Общие переводы для документов
     document_view: "Document view",
     document_loading: "Loading document...",
@@ -888,6 +932,9 @@ const translations = {
       "Adoption, form, and correction of arbitral awards",
     reglament_section6_title: "VI. Enforcement of Awards",
     reglament_section6_desc: "Voluntary and compulsory enforcement of awards",
+
+    nav_group_procedures: "Core Documents & Procedures",
+    nav_group_samples: "Samples & Templates",
   },
   kz: {
     page_title_main: "Басты бет | Арбитраждық шешімдердің халықаралық орталығы",
@@ -905,7 +952,8 @@ const translations = {
     nav_otzyv_isk: "Талап арызға пікір",
     nav_poroznom: "Іс материалдарымен танысу",
     nav_porpod: "Талап арыз беру тәртібі",
-    nav_porrasarb: "Істерді қарау тәртібі", // <-- ЖАҢА АУДАРМА
+    nav_porrasarb: "Істерді қарау тәртібі",
+    nav_schema: "Істің өту кезеңдері", // <-- ЖАҢА АУДАРМА
     nav_news: "Жаңалықтар",
     nav_contacts: "Байланыс",
     hero_title: "Арбитраждық шешімдердің халықаралық орталығы",
@@ -1304,6 +1352,26 @@ const translations = {
     porrasarb_section4_desc: "Талқылауды тоқтату және шешімді орындау.",
     // --- АЯҚТАЛУ: Істерді қарау тәртібі бетіне арналған аудармалар ---
 
+    // --- БАСТАУ: Істің өту кезеңдері бетіне арналған аудармалар ---
+    schema_title: "Арбитраждық істің өту кезеңдері",
+    schema_subtitle: "Арбитраждық талқылау процесінің көрнекі сызбасы",
+    schema_benefit1_title: "Көрнекілік",
+    schema_benefit1_desc: "Барлық процестің қарапайым және түсінікті сызбасы.",
+    schema_benefit2_title: "Негізгі кезеңдер",
+    schema_benefit2_desc: "Талқылаудың негізгі сатыларын бөліп көрсету.",
+    schema_benefit3_title: "Мерзімдер",
+    schema_benefit3_desc: "Әрбір кезең үшін болжамды мерзімдер.",
+    schema_benefit4_title: "Тараптардың әрекеттері",
+    schema_benefit4_desc:
+      "Әрбір қадамда талапкер мен жауапкерден не талап етіледі.",
+    schema_info_title: "Құжат туралы ақпарат",
+    schema_info_name: "Арбитраждық істің өту кезеңдері",
+    schema_info_status: "Ақпараттық сызба",
+    schema_info_purpose_title: "Құжаттың мақсаты",
+    schema_info_purpose_desc:
+      "Жақсырақ түсіну үшін арбитраждық талқылау процесін визуализациялау.",
+    // --- АЯҚТАЛУ: Істің өту кезеңдері бетіне арналған аудармалар ---
+
     // Общие переводы для документов
     document_view: "Құжатты қарау",
     document_loading: "Құжат жүктелуде...",
@@ -1341,6 +1409,9 @@ const translations = {
     field_format: "Пішім",
     field_language: "Тіл",
     field_status: "Мәртебе",
+
+    nav_group_procedures: "Негізгі құжаттар мен рәсімдер",
+    nav_group_samples: "Үлгілер мен шаблондар",
   },
 };
 

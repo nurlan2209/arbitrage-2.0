@@ -15,7 +15,8 @@ import IskEdinArbitrPage from "./pages/DocumentsPage/IskEdinArbitrPage";
 import OtzyvIskPage from "./pages/DocumentsPage/OtzyvIskPage";
 import PoroznomPage from "./pages/DocumentsPage/PoroznomPage";
 import PorpodPage from "./pages/DocumentsPage/PorpodPage";
-import PorrasarbPage from "./pages/DocumentsPage/PorrasarbPage"; // <-- ИМПОРТ НОВОЙ СТРАНИЦЫ
+import PorrasarbPage from "./pages/DocumentsPage/PorrasarbPage";
+import SchemaPage from "./pages/DocumentsPage/SchemaPage"; // <-- ИМПОРТ НОВОЙ СТРАНИЦЫ
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 
@@ -52,8 +53,10 @@ function App() {
         return <PoroznomPage />;
       case "porpod":
         return <PorpodPage />;
-      case "porrasarb": // <-- ДОБАВЛЕН НОВЫЙ КЕЙС
+      case "porrasarb":
         return <PorrasarbPage />;
+      case "schema": // <-- ДОБАВЛЕН НОВЫЙ КЕЙС
+        return <SchemaPage />;
       default:
         return <HomePage setCurrentPage={setCurrentPage} />;
     }
