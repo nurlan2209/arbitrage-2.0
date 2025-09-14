@@ -94,7 +94,6 @@ const translations = {
     contact_phone_form: "Телефон",
     message_form: "Сообщение *",
     contact_t_address: "Адрес",
-    contact_phone: "Телефон: +7 (707) 329-39-69, +7 (701) 558-80-33",
     contact_email_main: "Email для связи: arbitragerk.kz@gmail.com",
     send_message: "Отправить сообщение",
     footer_copyright:
@@ -106,6 +105,21 @@ const translations = {
     weekend: "Сб - Вс",
     work_time: "9:00 - 18:00",
     weekend_text: "Выходной",
+    contact_email_form: "Email *",
+    contact_email_placeholder: "your@email.com",
+    contact_phone_placeholder: "+7 (___) ___-__-__",
+    contact_form_notice_title: "Обратите внимание:",
+    contact_form_notice_desc:
+      "Мы отвечаем на все обращения в течение 24 часов в рабочие дни.",
+    contact_methods_title: "Способы связи",
+    contact_methods_desc:
+      "Выберите удобный для вас способ получения консультации",
+    contact_method1_title: "Телефонная консультация",
+    contact_method1_desc: "Получите быструю консультацию по телефону",
+    contact_method2_title: "Email консультация",
+    contact_method2_desc: "Отправьте подробный запрос на электронную почту",
+    contact_method3_title: "Личная встреча",
+    contact_method3_desc: "Посетите наш офис для детальной консультации",
 
     pogashenie_title: "Соглашение о погашении задолженности",
     pogashenie_subtitle:
@@ -571,7 +585,6 @@ const translations = {
     message_form: "Message *",
     name_form: "Name *",
     contact_t_address: "Address",
-    contact_phone: "Phone: +7 (707) 329-39-69, +7 (701) 558-80-33",
     send_message: "Send message",
     contact_email_main: "Email for contact: arbitragerk.kz@gmail.com",
     footer_copyright:
@@ -583,6 +596,20 @@ const translations = {
     weekend: "Sat - Sun",
     work_time: "9:00 AM - 6:00 PM",
     weekend_text: "Closed",
+    contact_email_form: "Email *",
+    contact_email_placeholder: "your@email.com",
+    contact_phone_placeholder: "+7 (___) ___-__-__",
+    contact_form_notice_title: "Please note:",
+    contact_form_notice_desc:
+      "We respond to all inquiries within 24 hours on business days.",
+    contact_methods_title: "Ways to get in touch",
+    contact_methods_desc: "Choose a convenient way to get a consultation",
+    contact_method1_title: "Phone consultation",
+    contact_method1_desc: "Get a quick consultation by phone",
+    contact_method2_title: "Email consultation",
+    contact_method2_desc: "Send a detailed request by email",
+    contact_method3_title: "Personal meeting",
+    contact_method3_desc: "Visit our office for a detailed consultation",
 
     pogashenie_title: "Debt Repayment Agreement",
     pogashenie_subtitle:
@@ -1040,14 +1067,12 @@ const translations = {
       "Мұнда жаңалықтар легі болады. Әрбір жаңалықты жеке блок ретінде рәсімдеуге болады.",
     contact_title: "Байланыс ақпараты",
     contact_phone: "Нөмірлер",
-    contact_address:
-      "Астана қ., Тұран даңғылы, 83/1 үй, 122 кеңсе",
+    contact_address: "Астана қ., Тұран даңғылы, 83/1 үй, 122 кеңсе",
     contact_work_hour: "Жұмыс уақыты",
     contact_form_title: "Бізбен хабарласыңыз",
     our_contact: "Байланыс",
     contact_t_address: "Мекен-жай",
     name_form: "Аты *",
-    contact_phone: "Телефон: +7 (707) 329-39-69, +7 (701) 558-80-33",
     message_form: "Хабар *",
     contact_phone_form: "Телефон",
     send_message: "Хабарлама жіберу",
@@ -1061,6 +1086,20 @@ const translations = {
     weekend: "Сб - Жс",
     work_time: "9:00 - 18:00",
     weekend_text: "Демалыс",
+    contact_email_form: "Email *",
+    contact_email_placeholder: "your@email.com",
+    contact_phone_placeholder: "+7 (___) ___-__-__",
+    contact_form_notice_title: "Назар аударыңыз:",
+    contact_form_notice_desc:
+      "Біз барлық өтініштерге жұмыс күндері 24 сағат ішінде жауап береміз.",
+    contact_methods_title: "Байланыс тәсілдері",
+    contact_methods_desc: "Кеңес алудың ыңғайлы тәсілін таңдаңыз",
+    contact_method1_title: "Телефон арқылы кеңес алу",
+    contact_method1_desc: "Телефон арқылы жылдам кеңес алыңыз",
+    contact_method2_title: "Email арқылы кеңес алу",
+    contact_method2_desc: "Электрондық пошта арқылы толық сұрау жіберіңіз",
+    contact_method3_title: "Жеке кездесу",
+    contact_method3_desc: "Толық кеңес алу үшін біздің кеңсеге келіңіз",
 
     pogashenie_title: "Қарызды өтеу туралы келісім",
     pogashenie_subtitle:

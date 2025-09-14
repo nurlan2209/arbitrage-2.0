@@ -144,7 +144,7 @@ const ContactPage = () => {
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-blue-900 mb-4 flex items-center space-x-2">
                     <MapPin className="w-5 h-5" />
-                    <span>Местоположение</span>
+                    <span>{t("location")}</span>
                   </h3>
                 </div>
                 <div className="h-64">
@@ -198,7 +198,7 @@ const ContactPage = () => {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Email *
+                    {t("contact_email_form")}
                   </label>
                   <div className="relative">
                     <Mail className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
@@ -210,7 +210,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="your@email.com"
+                      placeholder={t("contact_email_placeholder")}
                     />
                   </div>
                 </div>
@@ -231,7 +231,7 @@ const ContactPage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="+7 (___) ___-__-__"
+                      placeholder={t("contact_phone_placeholder")}
                     />
                   </div>
                 </div>
@@ -266,8 +266,8 @@ const ContactPage = () => {
 
               <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <p className="text-sm text-blue-800">
-                  <strong>Обратите внимание:</strong> Мы отвечаем на все
-                  обращения в течение 24 часов в рабочие дни.
+                  <strong>{t("contact_form_notice_title")}</strong>{" "}
+                  {t("contact_form_notice_desc")}
                 </p>
               </div>
             </div>
@@ -277,10 +277,10 @@ const ContactPage = () => {
           <div className="mt-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-2xl p-8 lg:p-12 shadow-2xl">
             <div className="text-center mb-8">
               <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-                Способы связи
+                {t("contact_methods_title")}
               </h3>
               <p className="text-blue-100 text-lg">
-                Выберите удобный для вас способ получения консультации
+                {t("contact_methods_desc")}
               </p>
             </div>
 
@@ -290,11 +290,9 @@ const ContactPage = () => {
                   <Phone className="w-10 h-10 text-yellow-400" />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">
-                  Телефонная консультация
+                  {t("contact_method1_title")}
                 </h4>
-                <p className="text-blue-100">
-                  Получите быструю консультацию по телефону
-                </p>
+                <p className="text-blue-100">{t("contact_method1_desc")}</p>
               </div>
 
               <div className="text-center">
@@ -302,21 +300,19 @@ const ContactPage = () => {
                   <Mail className="w-10 h-10 text-yellow-400" />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">
-                  Email консультация
+                  {t("contact_method2_title")}
                 </h4>
-                <p className="text-blue-100">
-                  Отправьте подробный запрос на электронную почту
-                </p>
+                <p className="text-blue-100">{t("contact_method2_desc")}</p>
               </div>
 
               <div className="text-center">
                 <div className="p-4 bg-white bg-opacity-10 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
                   <MapPin className="w-10 h-10 text-yellow-400" />
                 </div>
-                <h4 className="text-xl font-semibold mb-2">Личная встреча</h4>
-                <p className="text-blue-100">
-                  Посетите наш офис для детальной консультации
-                </p>
+                <h4 className="text-xl font-semibold mb-2">
+                  {t("contact_method3_title")}
+                </h4>
+                <p className="text-blue-100">{t("contact_method3_desc")}</p>
               </div>
             </div>
           </div>

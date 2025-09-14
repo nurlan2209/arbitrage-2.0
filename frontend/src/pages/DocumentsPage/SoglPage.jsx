@@ -44,16 +44,6 @@ const SoglPage = () => {
                 <p className="text-gray-600 mt-1">{t("sogl_subtitle")}</p>
               </div>
             </div>
-
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={handleDownload}
-                className="flex items-center space-x-2 bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors"
-              >
-                <Download className="w-4 h-4" />
-                <span>{t("document_download")}</span>
-              </button>
-            </div>
           </div>
         </div>
 

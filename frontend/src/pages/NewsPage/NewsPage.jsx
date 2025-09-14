@@ -21,7 +21,7 @@ const NewsPage = () => {
   const [selectedNews, setSelectedNews] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const API_BASE_URL = "http://127.0.0.1:8000"; // Адрес вашего бэкенда
+  const API_BASE_URL = "https://arbitrage-rk.kz"; // Адрес вашего бэкенда
   const NEWS_PER_PAGE = 9;
 
   const fetchNews = async (pageNum) => {
@@ -29,7 +29,7 @@ const NewsPage = () => {
     setError(null);
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/news?skip=${
+        `${API_BASE_URL}/api/get_news.php?skip=${
           pageNum * NEWS_PER_PAGE
         }&limit=${NEWS_PER_PAGE}`
       );
