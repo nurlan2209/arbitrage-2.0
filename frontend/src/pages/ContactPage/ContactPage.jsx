@@ -54,7 +54,7 @@ const ContactPage = () => {
               <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-8">
                 <h2 className="text-2xl font-bold text-blue-900 mb-6 flex items-center space-x-2">
                   <MapPin className="w-6 h-6" />
-                  <span>Наши контакты</span>
+                  <span>{t("our_contact")}</span>
                 </h2>
 
                 <div className="space-y-6">
@@ -64,7 +64,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-blue-900 mb-1">
-                        Адрес
+                        {t("contact_t_address")}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
                         {t("contact_address").replace("Наш адрес: ", "")}
@@ -78,7 +78,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-blue-900 mb-2">
-                        Телефоны
+                        {t("contact_phone")}
                       </h3>
                       <div className="space-y-1">
                         <a
@@ -120,7 +120,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-blue-900 mb-2">
-                        Режим работы
+                        {t("contact_work_hour")}
                       </h3>
                       <div className="space-y-1 text-gray-600">
                         <div className="flex justify-between">
@@ -167,7 +167,7 @@ const ContactPage = () => {
             <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-8">
               <h2 className="text-2xl font-bold text-blue-900 mb-6 flex items-center space-x-2">
                 <MessageSquare className="w-6 h-6" />
-                <span>Связаться с нами</span>
+                <span>{t("contact_form_title")}</span>
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -176,7 +176,7 @@ const ContactPage = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Имя *
+                    {t("name_form")}
                   </label>
                   <div className="relative">
                     <User className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
@@ -188,7 +188,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Ваше имя"
+                      placeholder=""
                     />
                   </div>
                 </div>
@@ -220,7 +220,7 @@ const ContactPage = () => {
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Телефон
+                    {t("contact_phone_form")}
                   </label>
                   <div className="relative">
                     <Phone className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
@@ -241,7 +241,7 @@ const ContactPage = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Сообщение *
+                    {t("message_form")}
                   </label>
                   <textarea
                     id="message"
@@ -251,7 +251,7 @@ const ContactPage = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                    placeholder="Опишите ваш вопрос или запрос..."
+                    placeholder=""
                   />
                 </div>
 
@@ -260,7 +260,7 @@ const ContactPage = () => {
                   className="w-full bg-blue-900 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-800 transition-colors flex items-center justify-center space-x-2 shadow-lg"
                 >
                   <Send className="w-5 h-5" />
-                  <span>Отправить сообщение</span>
+                  <span>{t("send_message")}</span>
                 </button>
               </form>
 

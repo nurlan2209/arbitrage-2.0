@@ -9,9 +9,9 @@ from fastapi import FastAPI, Depends, HTTPException, Query, Security
 from fastapi.security import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, Integer, String, Text, DateTime, select
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
 # --- Admin ---
 from sqladmin import Admin, ModelView
@@ -140,40 +140,38 @@ sync_engine = async_engine.sync_engine
 SessionLocal = sessionmaker(bind=sync_engine)
 
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+async def get_db_session() -> AsyncSession:
+    async with async_session_maker() as session:
+        yield session
 
 
 # --- API ---
 @app.get("/api/news", response_model=List[NewsSchema], tags=["Новости"])
-def get_news_list(
+async def get_news_list(
     skip: int = Query(0, ge=0),
     limit: int = Query(9, ge=1, le=100),
-    db: Session = Depends(get_db),
+    db: AsyncSession = Depends(get_db_session),
 ):
-    return (
-        db.query(News)
+    result = await db.execute(
+        select(News)
         .order_by(News.publication_date.desc())
         .offset(skip)
         .limit(limit)
-        .all()
     )
+    news = result.scalars().all()
+    return news
 
 
 @app.post("/api/news/telegram", response_model=NewsSchema, tags=["Телеграм Бот"])
-def create_news_from_bot(
+async def create_news_from_bot(
     news_data: NewsCreateSchema,
     api_key: str = Depends(get_api_key),
-    db: Session = Depends(get_db),
+    db: AsyncSession = Depends(get_db_session),
 ):
     new_article = News(title=news_data.title, full_text=news_data.full_text)
     db.add(new_article)
-    db.commit()
-    db.refresh(new_article)
+    await db.commit()
+    await db.refresh(new_article)
     return new_article
 
 
