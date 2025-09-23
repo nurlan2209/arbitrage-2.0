@@ -16,7 +16,7 @@ import OtzyvIskPage from "./pages/DocumentsPage/OtzyvIskPage";
 import PoroznomPage from "./pages/DocumentsPage/PoroznomPage";
 import PorpodPage from "./pages/DocumentsPage/PorpodPage";
 import PorrasarbPage from "./pages/DocumentsPage/PorrasarbPage";
-import SchemaPage from "./pages/DocumentsPage/SchemaPage"; // <-- ИМПОРТ НОВОЙ СТРАНИЦЫ
+import SchemaPage from "./pages/DocumentsPage/SchemaPage";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 
@@ -55,7 +55,7 @@ function App() {
         return <PorpodPage />;
       case "porrasarb":
         return <PorrasarbPage />;
-      case "schema": // <-- ДОБАВЛЕН НОВЫЙ КЕЙС
+      case "schema":
         return <SchemaPage />;
       default:
         return <HomePage setCurrentPage={setCurrentPage} />;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -7,6 +7,15 @@ const Header = ({ currentPage, setCurrentPage }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isDocumentsDropdownOpen, setIsDocumentsDropdownOpen] = useState(false);
+
+  // Блокируем скролл страницы, когда мобильное меню открыто
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMobileMenuOpen]);
 
   const documentGroups = {
     group1: {
@@ -58,11 +67,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50 border-b-4 border-blue-900">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-2">
-          {/* Logo Section */}
-          <div className="flex items-center">
+    <>
+      <header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50 border-b-4 border-blue-900">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-2">
+            {/* Logo Section */}
             <button
               onClick={() => setCurrentPage("home")}
               className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
@@ -78,113 +87,127 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 {t("logo_text")}
               </div>
             </button>
-          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <div key={item.key} className="relative">
-                {item.isDropdown ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setIsDocumentsDropdownOpen(true)}
-                    onMouseLeave={() => setIsDocumentsDropdownOpen(false)}
-                  >
-                    <button className="flex items-center space-x-1 text-blue-700 hover:text-blue-900 hover:border-b-2 hover:border-blue-900 pb-1 transition-all font-medium">
-                      <span>{item.label}</span>
-                      <ChevronDown className="w-4 h-4" />
-                    </button>
+            {/* --- ВОТ ЭТОТ БЛОК БЫЛ ПУСТЫМ, ТЕПЕРЬ ОН ВОССТАНОВЛЕН --- */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <div key={item.key} className="relative">
+                  {item.isDropdown ? (
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setIsDocumentsDropdownOpen(true)}
+                      onMouseLeave={() => setIsDocumentsDropdownOpen(false)}
+                    >
+                      <button className="flex items-center space-x-1 text-blue-700 hover:text-blue-900 hover:border-b-2 hover:border-blue-900 pb-1 transition-all font-medium">
+                        <span>{item.label}</span>
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
 
-                    {isDocumentsDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white shadow-xl rounded-lg border p-4 z-10 w-max">
-                        <div className="flex space-x-8">
-                          {Object.values(item.dropdownGroups).map((group) => (
-                            <div key={group.title} className="flex-1">
-                              <h3 className="font-bold text-blue-900 px-4 pb-2 mb-2 border-b">
-                                {group.title}
-                              </h3>
-                              <div className="flex flex-col">
-                                {group.items.map((subItem) => (
-                                  <button
-                                    key={subItem.key}
-                                    onClick={() => {
-                                      setCurrentPage(subItem.key);
-                                      setIsDocumentsDropdownOpen(false);
-                                    }}
-                                    className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors rounded-md"
-                                  >
-                                    {subItem.label}
-                                  </button>
-                                ))}
+                      {isDocumentsDropdownOpen && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white shadow-xl rounded-lg border p-4 z-10 w-max">
+                          <div className="flex space-x-8">
+                            {Object.values(documentGroups).map((group) => (
+                              <div key={group.title} className="flex-1">
+                                <h3 className="font-bold text-blue-900 px-4 pb-2 mb-2 border-b">
+                                  {group.title}
+                                </h3>
+                                <div className="flex flex-col">
+                                  {group.items.map((subItem) => (
+                                    <button
+                                      key={subItem.key}
+                                      onClick={() => {
+                                        setCurrentPage(subItem.key);
+                                        setIsDocumentsDropdownOpen(false);
+                                      }}
+                                      className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors rounded-md"
+                                    >
+                                      {subItem.label}
+                                    </button>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setCurrentPage(item.key)}
+                      className={`text-blue-700 hover:text-blue-900 hover:border-b-2 hover:border-blue-900 pb-1 transition-all font-medium ${
+                        currentPage === item.key
+                          ? "border-b-2 border-blue-900 text-blue-900"
+                          : ""
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            {/* Language Switcher & Mobile Menu Button */}
+            <div className="flex items-center space-x-4">
+              {/* --- И ЭТОТ БЛОК ДЛЯ ДЕСКТОПА ТОЖЕ ВОССТАНОВЛЕН --- */}
+              <div className="relative hidden lg:block">
+                <button
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="px-3 py-1 border border-gray-300 rounded text-blue-900 font-bold hover:bg-gray-50 transition-colors"
+                >
+                  {currentLanguage.toUpperCase()}
+                </button>
+
+                {isLangMenuOpen && (
+                  <div className="absolute top-full right-0 mt-1 bg-white shadow-xl rounded-lg border py-1 min-w-32 z-20">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          changeLanguage(lang.code);
+                          setIsLangMenuOpen(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors"
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
                   </div>
-                ) : (
-                  <button
-                    onClick={() => setCurrentPage(item.key)}
-                    className={`text-blue-700 hover:text-blue-900 hover:border-b-2 hover:border-blue-900 pb-1 transition-all font-medium ${
-                      currentPage === item.key
-                        ? "border-b-2 border-blue-900 text-blue-900"
-                        : ""
-                    }`}
-                  >
-                    {item.label}
-                  </button>
                 )}
               </div>
-            ))}
-          </nav>
 
-          {/* Language Switcher & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {/* Language Dropdown */}
-            <div className="relative">
               <button
-                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="px-3 py-1 border border-gray-300 rounded text-blue-900 font-bold hover:bg-gray-50 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-blue-900"
               >
-                {currentLanguage.toUpperCase()}
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
-
-              {isLangMenuOpen && (
-                <div className="absolute top-full right-0 mt-1 bg-white shadow-xl rounded-lg border py-1 min-w-32 z-20">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => {
-                        changeLanguage(lang.code);
-                        setIsLangMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 text-blue-700 hover:bg-gray-50 hover:text-blue-900 transition-colors"
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-blue-900 hover:bg-gray-50 rounded transition-colors"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 py-4">
+      {/* Mobile Menu Overlay & Panel */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-black bg-opacity-50"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
+
+        <div
+          className={`relative bg-white transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <div className="container mx-auto px-4 pt-32 pb-8 h-screen overflow-y-auto">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <div key={item.key}>
@@ -194,26 +217,25 @@ const Header = ({ currentPage, setCurrentPage }) => {
                         onClick={() =>
                           setIsDocumentsDropdownOpen(!isDocumentsDropdownOpen)
                         }
-                        className="flex items-center justify-between w-full px-4 py-2 text-blue-700 hover:bg-gray-50 rounded transition-colors"
+                        className="flex items-center justify-between w-full p-3 text-lg text-gray-700 hover:bg-gray-100 rounded-lg"
                       >
                         <span>{item.label}</span>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
+                          className={`w-5 h-5 transition-transform ${
                             isDocumentsDropdownOpen ? "rotate-180" : ""
                           }`}
                         />
                       </button>
                       {isDocumentsDropdownOpen && (
-                        <div className="ml-4 mt-2 space-y-1">
+                        <div className="ml-4 mt-1 space-y-1 border-l-2 pl-4">
                           {allDropdownItems.map((subItem) => (
                             <button
                               key={subItem.key}
                               onClick={() => {
                                 setCurrentPage(subItem.key);
                                 setIsMobileMenuOpen(false);
-                                setIsDocumentsDropdownOpen(false);
                               }}
-                              className="block w-full text-left px-4 py-2 text-blue-600 hover:bg-gray-50 rounded transition-colors"
+                              className="block w-full text-left p-3 text-gray-600 hover:bg-gray-100 rounded-lg"
                             >
                               {subItem.label}
                             </button>
@@ -227,10 +249,10 @@ const Header = ({ currentPage, setCurrentPage }) => {
                         setCurrentPage(item.key);
                         setIsMobileMenuOpen(false);
                       }}
-                      className={`block w-full text-left px-4 py-2 rounded transition-colors ${
+                      className={`block w-full text-left p-3 text-lg rounded-lg transition-colors ${
                         currentPage === item.key
-                          ? "bg-blue-50 text-blue-900 font-medium"
-                          : "text-blue-700 hover:bg-gray-50"
+                          ? "bg-blue-100 text-blue-900 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
                       {item.label}
@@ -239,9 +261,8 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 </div>
               ))}
 
-              {/* Mobile Language Switcher */}
-              <div className="pt-3 border-t border-gray-200">
-                <div className="px-4 mb-2 text-sm font-medium text-gray-600">
+              <div className="pt-4 mt-4 border-t">
+                <div className="px-3 mb-2 text-sm font-medium text-gray-500">
                   Язык / Language
                 </div>
                 {languages.map((lang) => (
@@ -251,10 +272,10 @@ const Header = ({ currentPage, setCurrentPage }) => {
                       changeLanguage(lang.code);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`block w-full text-left px-4 py-2 rounded transition-colors ${
+                    className={`block w-full text-left p-3 rounded-lg transition-colors ${
                       currentLanguage === lang.code
-                        ? "bg-blue-50 text-blue-900 font-medium"
-                        : "text-blue-700 hover:bg-gray-50"
+                        ? "bg-blue-100 text-blue-900 font-semibold"
+                        : "text-gray-700 hover:bg-gray-100"
                     }`}
                   >
                     {lang.label}
@@ -263,17 +284,9 @@ const Header = ({ currentPage, setCurrentPage }) => {
               </div>
             </nav>
           </div>
-        )}
+        </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
-    </header>
+    </>
   );
 };
 
