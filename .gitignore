@@ -56,4 +56,4 @@ ehthumbs.db
 .npm
 .eslintcache
 .vite
-.cache
+.cachefrontend/build/
