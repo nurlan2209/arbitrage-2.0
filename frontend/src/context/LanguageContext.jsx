@@ -21,9 +21,9 @@ const translations = {
     nav_schema: "Этапы прохождения дела", // <-- НОВЫЙ ПЕРЕВОД
     nav_news: "Новости",
     nav_contacts: "Контакты",
-    hero_title: "Международный центр Арбитражных решений",
+    hero_title: "(Арбитраж МЦАР) Международный центр Арбитражных решений",
     hero_subtitle:
-      "Мы созданы для справедливого и беспристрастного отправления правосудия в рамках юрисдикции, установленной законодательством. Этот сайт поможет вам ознакомиться с нашей работой.",
+      "Разрешаем гражданско-правовые споры с применением законодательства РК — внутри страны и за её пределами. Для физических и юридических лиц — вне зависимости от места жительства или нахождения сторон.",
     hero_button_about: "Подробнее о нас",
     hero_card1_title: "Председатель Арбитража",
     main_welcome: "Добро пожаловать на наш сайт",
@@ -39,7 +39,7 @@ const translations = {
       "или при наличии арбитражной оговорки в договорах о рассмотрении спора в нашем Арбитраже",
     main_location: "Спор рассматривается независимо от места проживания",
     main_location_text: "или нахождения сторон, а также в онлайн режиме",
-    main_fee: "Государственная пошлина",
+    main_fee: "Арбитражный сбор",
     main_fee_text:
       "по всем вышеуказанным спорам составляет для физических лиц 2%, для юридических лиц 5% от суммы иска, но не менее 20 МРП",
     main_decision: "Решение Арбитража вступает в законную силу сразу",
@@ -511,9 +511,10 @@ const translations = {
     nav_schema: "Arbitration case stages", // <-- NEW TRANSLATION
     nav_news: "News",
     nav_contacts: "Contacts",
-    hero_title: "International Center for Arbitration Solutions",
+    hero_title:
+      "Arbitration(ICAS) International Center for Arbitration Solutions",
     hero_subtitle:
-      "We are created for fair and impartial administration of justice within the jurisdiction established by law. This website will help you get acquainted with our work.",
+      "We resolve civil law disputes with the application of the legislation of the Republic of Kazakhstan — inside and outside the country. For individuals and legal entities — regardless of the place of residence or location of the parties.",
     hero_button_about: "Learn More About Us",
     hero_card1_title: "Chairman of Arbitration",
     main_welcome: "Welcome to our website",
@@ -530,7 +531,7 @@ const translations = {
     main_location:
       "The dispute is considered regardless of the place of residence",
     main_location_text: "or location of the parties, as well as online",
-    main_fee: "State fee",
+    main_fee: "Arbitration fee",
     main_fee_text:
       "for all the above disputes is 2% for individuals, 5% for legal entities of the claim amount, but not less than 20 MCI",
     main_decision:
@@ -1001,9 +1002,9 @@ const translations = {
     nav_schema: "Істің өту кезеңдері", // <-- ЖАҢА АУДАРМА
     nav_news: "Жаңалықтар",
     nav_contacts: "Байланыс",
-    hero_title: "Арбитраждық шешімдердің халықаралық орталығы",
+    hero_title: "Арбитраж(АШХО) Арбитраждық шешімдердің халықаралық орталығы",
     hero_subtitle:
-      "Біз заңнамамен белгіленген юрисдикция шеңберінде әділ және бейтарап сот төрелігін жүзеге асыру үшін құрылдық. Бұл сайт біздің жұмысымызбен танысуға көмектеседі.",
+      "Азаматтық-құқықтық дауларды ҚР заңнамасын қолдану арқылы — ел ішінде және одан тыс жерлерде шешеміз. Жеке және заңды тұлғалар үшін — тұрғылықты жеріне немесе тараптардың орналасқан жеріне қарамастан.",
     hero_button_about: "Біз туралы толығырақ",
     hero_card1_title: "Арбитраж төрағасы",
     main_welcome: "Біздің сайтқа қош келдіңіз",
@@ -1020,7 +1021,7 @@ const translations = {
     main_location: "Дау тараптардың тұрғылықты жері",
     main_location_text:
       "немесе орналасқан жеріне қарамастан, сондай-ақ онлайн режимінде қаралады",
-    main_fee: "Мемлекеттік баж",
+    main_fee: "Төрелік алым",
     main_fee_text:
       "жоғарыда аталған барлық дауларға жеке тұлғалар үшін 2%, заңды тұлғалар үшін талап сомасының 5% құрайды, бірақ 20 ЕСК-дан кем емес",
     main_decision: "Арбитраж шешімі бірден заңды күшіне енеді",

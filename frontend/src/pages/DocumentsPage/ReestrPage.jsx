@@ -1,287 +1,262 @@
-import React, { useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import {
-  FileText,
-  Download,
-  Eye,
-  Users,
-  Award,
-  Scale,
-  Phone,
-} from "lucide-react";
+import React from "react";
+import ArbitratorCard from "./ArbitratorCard";
+import Layout from "../../components/Layout/Layout";
+
+// Итоговый список арбитров
+const arbitratorsData = [
+  {
+    id: 29,
+    name: { ru: "Жаркынбеков Малик Кузарович" },
+    experience: {
+      ru: `Стаж по юридической специальности: 26 лет.
+Судейский стаж: 21 год.
+
+Место работы:
+• 2024-н.в. - Член Палаты Юридических Консультантов - "Высшая Профессиональная Палата".
+• 2022-2024 гг. - Судья Шымкентского городского суда.
+• 2013-2022 гг. - Судья Актюбинского областного суда.
+• 2009-2013 гг. - Председатель Специализированного Межрайонного Административного Суда г. Караганда.
+• 2007-2009 гг. - Председатель Айтекебийского районного суда Актюбинской области.
+• 2003-2007 гг. - Судья специализированного межрайонного экономического суда Актюбинской области.
+• 2001-2003 гг. - Старший Специалист Государственно-правового Отдела Администрации Президента РК.
+• 1998-2001 гг. - Помощник председателя, главный специалист суда города Астаны.
+• 1997-1998 гг. - Юрист ТОО «Щит и меч».`,
+    },
+  },
+  {
+    id: 30,
+    name: { ru: "Игиликов Назарбек" },
+    experience: {
+      ru: `Место работы:
+• 2022-2025 гг. - Юридический консультант, Главная палата юридических консультантов Алматинской области.
+• 2011-2022 гг. - Судья, Карасайский районный суд Алматинской области.
+• 2007-2011 гг. - Судья, Костанайский областной суд.
+• 2005-2007 гг. - Председатель, Аулиекольский районный суд Костанайской области.
+• 2002-2005 гг. - Судья, Специализированный межрайонный экономический суд Актюбинской области.
+• 2001 г. - Специалист, Верховный Суд РК.
+• 2000 г. - Специалист, Суд города Астаны.`,
+    },
+  },
+  {
+    id: 1,
+    name: { ru: "Байменова Карлыгаш Гизатовна" },
+    experience: {
+      ru: `Общий стаж: 39 лет.
+Количество рассмотренных дел: 312.
+
+Место работы:
+• 1975-1986 гг. - Октябрьский районный суд города Караганды, секретарь судебного заседания, судебный исполнитель.
+• 1986-1997 гг. - Консультант Управления Юстиции, нотариус, консультант по судебной работе, начальник сектора кадров в Управлении Юстиции Карагандинской области.
+• 1997-2002 гг. - Судья Карагандинского областного суда.
+• 2002-2014 гг. - Судья суда г. Астана. Освобождена от должности в связи с уходом в отставку.`,
+    },
+  },
+  {
+    id: 3,
+    name: { ru: "Искакова Жанар Кабидуллаевна" },
+    experience: {
+      ru: `Общий стаж: 21 год.
+Количество рассмотренных дел: 224.
+
+Место работы:
+• 1996-2004 гг. - В органах прокуратуры РК.
+• с 2005 г. - Состоит в коллегии адвокатов г.Астана.
+• 2014-2015 гг. - Судья Третейского «Народного суда» г.Астана.`,
+    },
+  },
+  {
+    id: 4,
+    name: { ru: "Жумагельдиев Талгат Каирлыевич" },
+    experience: {
+      ru: `Общий стаж: 39 лет.
+Количество рассмотренных дел: 6.
+
+Место работы:
+• 1996-2004 гг. - В органах прокуратуры Карагандинской области.
+• 2004-2015 гг. - Руководящие должности юридических отделов в АО и ТОО.
+• с 2015 г. - Директор ТОО «Женic капитал».`,
+    },
+  },
+  {
+    id: 5,
+    name: { ru: "Тыштыков Ринат Серикбаевич" },
+    experience: {
+      ru: `Общий стаж: 20 лет.
+
+Место работы:
+• 1998-2010 гг. – Служба в органах внутренних дел.
+• с 2012 г. – Член Нотариальной палаты города Астаны, Председатель НП г.Астана.`,
+    },
+  },
+  {
+    id: 6,
+    name: { ru: "Баймедетов Марат Аймырзаевич" },
+    experience: {
+      ru: `Общий стаж: 18 лет.
+
+Место работы:
+• 2000-2010 гг. - Специалист Шуской транспортной прокуратуры.
+• 2010 г. - Старший специалист Генеральной прокуратуры.
+• 2012-2015 гг. - Советник Министра по инвестициям.
+• В настоящее время - директор ТОО "Bill Corporation".`,
+    },
+  },
+  {
+    id: 8,
+    name: { ru: "Солтаниянова Сабира Достановна" },
+    experience: {
+      ru: `Общий стаж: 24 года.
+Количество рассмотренных дел: 4.
+
+Место работы:
+• 1994-2000 гг. - Старший преподаватель в ПГУ и КАЗГЮА.
+• 2000-2002 гг. – Главный специалист по правовым вопросам Акимата Щербактинского района.
+• 2002-2005 гг. - Прокурор по правовой статистике в Прокуратуре Иртышского района.
+• 2005-2017 гг. – Юрист, начальник юр. департамента в АО «Heaven House», АО «БТА Страхование», ТОО «УК «Eurasia Energy Group», ТОО «Road Construction».
+• с 2017 г. - Руководитель отдела административно-правовой работы ТОО «Verus Engineering».`,
+    },
+  },
+  {
+    id: 14,
+    name: { ru: "Куценко Снежана Григорьевна" },
+    experience: {
+      ru: `Общий стаж: 7 лет.
+Количество рассмотренных дел: 37.
+
+Место работы:
+• Работа в юридической сфере с различным направлением с 2013 года.`,
+    },
+  },
+  {
+    id: 18,
+    name: { ru: "Абдрахимов Улан Зарлыкович" },
+    experience: {
+      ru: `Общий стаж: 21 год.
+
+Место работы:
+• 1998-2019 гг. - Следственное управление УВД, МВД РК (отдел по расследованию преступлений против личности, особо опасных преступлений, дознаватель, отдел по расследованию преступлений против собственности).
+• В настоящее время - адвокат Коллегии адвокатов г. Нур-Султан.`,
+    },
+  },
+  {
+    id: 20,
+    name: { ru: "Cулейменова Саида Сайлауовна" },
+    experience: {
+      ru: `Общий стаж: 15 лет.
+Количество рассмотренных дел: 5.
+
+Место работы:
+• с 2000 г. - Юрист центра правовой статистики при Генеральной прокуратуре.
+• Опыт работы в военной прокуратуре Уральского гарнизона.
+• Юрист в подразделении акимата г. Астана.
+• Руководящая должность в юридическом агентстве "Inlaw.kz".`,
+    },
+  },
+  {
+    id: 23,
+    name: { ru: "Ильясов Кайрат Аубакирович" },
+    experience: {
+      ru: `Общий стаж: 39 лет (судейский стаж - 9 лет).
+Количество рассмотренных дел: 7.
+
+Место работы:
+• 2012-2021 гг. - Судья Специализированного межрайонного экономического суда ВКО, г. Усть-Каменогорск.`,
+    },
+  },
+  {
+    id: 24,
+    name: { ru: "Исенова Шахарман Токановна" },
+    experience: {
+      ru: `Общий стаж: 7 лет.
+Количество рассмотренных дел: 45.
+
+Место работы:
+• 2002-2013 гг. - Органы прокуратуры.
+• 2013-2019 гг. - Судья Специализированного межрайонного экономического суда ВКО.
+• с 2019 г. - Частная практика юридических услуг.`,
+    },
+  },
+  {
+    id: 25,
+    name: { ru: "Жумабеков Максат Кадырбекулы" },
+    experience: {
+      ru: `Общий стаж: 39 лет.
+Количество рассмотренных дел: 20.
+
+Место работы:
+• 2000-2001 гг. - Секретарь судебного заседания суда г. Астаны.
+• 2003-2006 гг. - Юрист, начальник юридического отдела в различных организациях.
+• 2007-2011 гг. - Начальник юридического отдела, директор в РГКП УДП РК.`,
+    },
+  },
+  {
+    id: 26,
+    name: { ru: "Отан Махмуд-Султан Ильясович" },
+    experience: {
+      ru: `Общий стаж: 39 лет.
+Количество рассмотренных дел: 7.
+
+Место работы:
+• 1997-2021 гг. - Прокуратура.
+• Имеет государственные награды "Прокуратура озаты" и "Прокуратура үздігі".`,
+    },
+  },
+  {
+    id: 27,
+    name: { ru: "Касенов Алихан Ермекович" },
+    experience: {
+      ru: `Общий стаж: 29 лет.
+
+Место работы:
+• 1987–1994 гг. - Служба в ОВД, следственный отдел, УВД Карагандинской области.
+• 1984–1999 гг. - Судья Шахтинского районного суда.
+• 1999–2010 гг. - Судья Карагандинского областного суда.
+• 2010–2024 гг. - Судья суда города Астаны. В апреле 2024 года ушел в отставку.`,
+    },
+  },
+  {
+    id: 28,
+    name: { ru: "Мадьярова Жулдыз Нуркашевна" },
+    experience: {
+      ru: `Общий стаж: 30 лет.
+Количество рассмотренных дел: 3.
+
+Место работы:
+• 1988-1991 гг. – Старший консультант управления юстиции Атырауской области.
+• 1991-1995 гг. – Арбитр, Судья Арбитражного суда Атырауской области.
+• 1996-2018 гг. – Председатель судебной коллегии, Судья Атырауского областного суда.
+• с 2018 г. – Судья в почетной отставке.`,
+    },
+  },
+];
 
 const ReestrPage = () => {
-  const { t } = useLanguage();
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Симуляция загрузки PDF
-  const handlePdfLoad = () => {
-    setIsLoading(false);
-  };
-
-  const handleDownload = () => {
-    // Скачивание PDF из папки public/documents/
-    const link = document.createElement("a");
-    link.href = "/documents/reestr.pdf";
-    link.download = "Реестр_арбитров.pdf";
-    link.click();
-  };
-
-  // Статистика для реестра арбитров
-  const stats = [
-    {
-      icon: Users,
-      number: "50+",
-      label: t("reestr_stats_total"),
-      color: "text-blue-600",
-    },
-    {
-      icon: Scale,
-      number: "35",
-      label: t("reestr_stats_judges"),
-      color: "text-green-600",
-    },
-    {
-      icon: Award,
-      number: "15+",
-      label: t("reestr_stats_experience"),
-      color: "text-purple-600",
-    },
-    {
-      icon: FileText,
-      number: "12",
-      label: t("reestr_stats_specializations"),
-      color: "text-orange-600",
-    },
-  ];
+  // В будущем можно будет добавить логику для переключения языка
+  const lang = "ru";
 
   return (
-    <div className="pt-32 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-lg border border-blue-100 p-6 mb-8">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-blue-900 rounded-lg">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl lg:text-3xl font-bold text-blue-900">
-                  {t("reestr_title")}
-                </h1>
-                <p className="text-gray-600 mt-1">{t("reestr_subtitle")}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <Layout>
+      <div className="container mx-auto px-4 py-32">
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-800">
+          Реестр арбитров
+        </h1>
+        <p className="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">
+          В данном разделе представлен список рекомендованных арбитров
+          Международного центра арбитражных решений, обладающих высокой
+          квалификацией и опытом в различных областях права.
+        </p>
 
-        {/* Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {stats.map((stat, index) => {
-            const IconComponent = stat.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 hover:shadow-xl transition-all text-center"
-              >
-                <div
-                  className={`p-3 bg-gray-100 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center`}
-                >
-                  <IconComponent className={`w-8 h-8 ${stat.color}`} />
-                </div>
-                <div className={`text-2xl font-bold ${stat.color} mb-2`}>
-                  {stat.number}
-                </div>
-                <p className="text-gray-600 text-sm font-medium">
-                  {stat.label}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* PDF Viewer Section */}
-        <div className="bg-white rounded-lg shadow-lg border border-blue-100 overflow-hidden">
-          <div className="bg-gray-100 px-6 py-3 border-b border-gray-200">
-            <div className="flex items-center space-x-2">
-              <Eye className="w-4 h-4 text-gray-600" />
-              <span className="text-sm font-medium text-gray-700">
-                {t("document_view")}
-              </span>
-            </div>
-          </div>
-
-          <div className="p-4">
-            {isLoading && (
-              <div className="flex items-center justify-center py-12">
-                <div className="text-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900 mx-auto mb-4"></div>
-                  <p className="text-gray-600">{t("document_loading")}</p>
-                </div>
-              </div>
-            )}
-
-            {/* PDF Embed Container */}
-            <div
-              className="w-full border border-gray-200 rounded-lg overflow-hidden"
-              style={{ height: "800px" }}
-            >
-              <iframe
-                src="/documents/reestr.pdf"
-                width="100%"
-                height="100%"
-                title={t("reestr_title")}
-                className="border-0"
-                onLoad={handlePdfLoad}
-              />
-            </div>
-
-            {/* Document Information */}
-            <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">
-                {t("reestr_info_title")}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <strong className="text-blue-800">{t("field_name")}:</strong>
-                  <br />
-                  {t("reestr_info_name")}
-                </div>
-                <div>
-                  <strong className="text-blue-800">
-                    {t("field_status")}:
-                  </strong>
-                  <br />
-                  {t("reestr_info_status")}
-                </div>
-                <div>
-                  <strong className="text-blue-800">
-                    {t("field_format")}:
-                  </strong>
-                  <br />
-                  {t("reestr_info_format")}
-                </div>
-                <div>
-                  <strong className="text-blue-800">
-                    {t("field_language")}:
-                  </strong>
-                  <br />
-                  {t("reestr_info_language")}
-                </div>
-              </div>
-            </div>
-
-            {/* Key Sections */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <div className="flex items-center space-x-2 mb-3">
-                  <Users className="w-5 h-5 text-blue-600" />
-                  <h4 className="font-semibold text-gray-800">
-                    {t("reestr_section1_title")}
-                  </h4>
-                </div>
-                <p className="text-sm text-gray-600">
-                  {t("reestr_section1_desc")}
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <div className="flex items-center space-x-2 mb-3">
-                  <Scale className="w-5 h-5 text-green-600" />
-                  <h4 className="font-semibold text-gray-800">
-                    {t("reestr_section2_title")}
-                  </h4>
-                </div>
-                <p className="text-sm text-gray-600">
-                  {t("reestr_section2_desc")}
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <div className="flex items-center space-x-2 mb-3">
-                  <Award className="w-5 h-5 text-purple-600" />
-                  <h4 className="font-semibold text-gray-800">
-                    {t("reestr_section3_title")}
-                  </h4>
-                </div>
-                <p className="text-sm text-gray-600">
-                  {t("reestr_section3_desc")}
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <div className="flex items-center space-x-2 mb-3">
-                  <Phone className="w-5 h-5 text-orange-600" />
-                  <h4 className="font-semibold text-gray-800">
-                    {t("reestr_section4_title")}
-                  </h4>
-                </div>
-                <p className="text-sm text-gray-600">
-                  {t("reestr_section4_desc")}
-                </p>
-              </div>
-            </div>
-
-            {/* Additional Information Card */}
-            <div className="mt-8 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-lg p-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <h3 className="text-xl font-bold mb-4">
-                    {t("reestr_contact_title")}
-                  </h3>
-                  <p className="mb-4 text-blue-100">
-                    {t("reestr_contact_desc")}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href="tel:+77073293969"
-                      className="flex items-center space-x-2 bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-colors"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>+7 (707) 329-39-69</span>
-                    </a>
-                    <a
-                      href="mailto:arbitragerk.kz@gmail.com"
-                      className="flex items-center space-x-2 bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-colors"
-                    >
-                      <span>arbitragerk.kz@gmail.com</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Benefits list */}
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-blue-100 text-sm">
-                      Более 50 квалифицированных арбитров
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-blue-100 text-sm">
-                      Опыт работы судьями в государственных судах
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-blue-100 text-sm">
-                      Специализация по различным отраслям права
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-blue-100 text-sm">
-                      Помощь в подборе арбитра под ваш спор
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div>
+          {arbitratorsData.map((arbitrator) => (
+            <ArbitratorCard
+              key={arbitrator.id}
+              arbitrator={arbitrator}
+              lang={lang}
+            />
+          ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

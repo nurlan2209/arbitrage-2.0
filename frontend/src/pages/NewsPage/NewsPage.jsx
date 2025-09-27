@@ -38,10 +38,14 @@ const NewsPage = () => {
       }
       const data = await response.json();
 
-      if (data.length === 0) {
+      if (data.news.length === 0) {
+        // <-- ИЗМЕНЕНИЕ ЗДЕСЬ
         setHasMore(false);
       } else {
-        setNews((prevNews) => (pageNum === 0 ? data : [...prevNews, ...data]));
+        // И ИЗМЕНЕНИЕ ЗДЕСЬ (два раза) ↓
+        setNews((prevNews) =>
+          pageNum === 0 ? data.news : [...prevNews, ...data.news]
+        );
       }
     } catch (err) {
       setError(err.message);

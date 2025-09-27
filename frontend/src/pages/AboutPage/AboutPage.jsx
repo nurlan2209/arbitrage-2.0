@@ -118,7 +118,7 @@ const AboutPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-yellow-400 mb-2">
-                    15+
+                    5
                   </div>
                   <p className="text-blue-100">{t("about_years_experience")}</p>
                 </div>
