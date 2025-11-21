@@ -12,6 +12,9 @@ const translations = {
     nav_reestr: "Реестр арбитров",
     nav_sogl: "Типовое соглашение",
     nav_obrazcy: "Образцы документов",
+    nav_raspiski: "Расписка",
+    nav_arbitrazh_sogl: "Арбитражное соглашение",
+    nav_universal_ogovorka: "Универсальная арбитражная оговорка",
     nav_pogashenie: "Соглашение о погашении",
     nav_isk_edin_arbitr: "Иск с единоличным арбитром",
     nav_otzyv_isk: "Отзыв на иск",
@@ -25,6 +28,8 @@ const translations = {
     hero_subtitle:
       "Разрешаем гражданско-правовые споры с применением законодательства РК — внутри страны и за её пределами. Для физических и юридических лиц — вне зависимости от места жительства или нахождения сторон.",
     hero_button_about: "Подробнее о нас",
+    hero_button_reestr: "Реестр арбитров",
+    hero_slogan: "Мы не решаем, кто прав, мы решаем, как двигаться дальше.",
     hero_card1_title: "Председатель Арбитража",
     main_welcome: "Добро пожаловать на наш сайт",
     main_law_text:
@@ -496,6 +501,9 @@ const translations = {
     logo_text: "International Center for Arbitration Solutions",
     nav_main: "Home",
     nav_about: "About Us",
+    nav_raspiski: "Receipt",
+    nav_arbitrazh_sogl: "Arbitration Agreement",
+    nav_universal_ogovorka: "Universal Arbitration Clause",
     nav_documents: "Documents",
     nav_reglament: "Regulations",
     nav_sborahi: "Fee Provisions",
@@ -516,6 +524,9 @@ const translations = {
     hero_subtitle:
       "We resolve civil law disputes with the application of the legislation of the Republic of Kazakhstan — inside and outside the country. For individuals and legal entities — regardless of the place of residence or location of the parties.",
     hero_button_about: "Learn More About Us",
+    hero_button_reestr: "Registry of Arbitrators",
+    hero_slogan:
+      "We don’t decide who’s right — we decide how to move forward.",
     hero_card1_title: "Chairman of Arbitration",
     main_welcome: "Welcome to our website",
     main_law_text:
@@ -988,6 +999,9 @@ const translations = {
     nav_main: "Басты бет",
     nav_about: "Біз туралы",
     nav_documents: "Құжаттар",
+    nav_raspiski: "Расписка",
+    nav_arbitrazh_sogl: "Арбитраждық келісім",
+    nav_universal_ogovorka: "Бірыңғай арбитраждық шарт",
     nav_reglament: "Регламент",
     nav_sborahi: "Алымдар туралы ереже",
     nav_reestr: "Арбитрлер тізілімі",
@@ -1006,6 +1020,9 @@ const translations = {
     hero_subtitle:
       "Азаматтық-құқықтық дауларды ҚР заңнамасын қолдану арқылы — ел ішінде және одан тыс жерлерде шешеміз. Жеке және заңды тұлғалар үшін — тұрғылықты жеріне немесе тараптардың орналасқан жеріне қарамастан.",
     hero_button_about: "Біз туралы толығырақ",
+    hero_slogan:
+      "Біз кім дұрыс екенін шешпейміз, біз қалай алға жылжу керегін шешеміз.",
+    hero_button_reestr: "Арбитрлер тізілімі",
     hero_card1_title: "Арбитраж төрағасы",
     main_welcome: "Біздің сайтқа қош келдіңіз",
     main_law_text:

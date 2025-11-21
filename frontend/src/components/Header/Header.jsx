@@ -38,6 +38,9 @@ const Header = ({ currentPage, setCurrentPage }) => {
         { key: "pogashenie", label: t("nav_pogashenie") },
         { key: "isk_edin_arbitr", label: t("nav_isk_edin_arbitr") },
         { key: "otzyv_isk", label: t("nav_otzyv_isk") },
+        { key: "arbitrazh_sogl", label: t("nav_arbitrazh_sogl") },
+        { key: "raspiski", label: t("nav_raspiski") },
+        { key: "universal_ogovorka", label: t("nav_universal_ogovorka") },
       ],
     },
   };
@@ -87,6 +90,45 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 {t("logo_text")}
               </div>
             </button>
+
+            <div className="flex-1 mx-4 text-center">
+              {/* <p className="text-blue-800 italic font-medium text-xs sm:text-sm tracking-wide leading-snug max-w-xs mx-auto">
+                {t("hero_slogan")}
+              </p> */}
+
+              {/* mobile: просто номера на белом фоне */}
+              <div className="flex flex-col items-center mt-2 gap-1 md:hidden">
+                <a
+                  href="tel:+77073293969"
+                  className="text-blue-800 text-sm font-semibold"
+                >
+                  +7 (707) 329-39-69
+                </a>
+                <a
+                  href="tel:+77015588033"
+                  className="text-blue-800 text-sm font-semibold"
+                >
+                  +7 (701) 558-80-33
+                </a>
+              </div>
+
+              {/* desktop: синие кнопки как раньше */}
+              <div className="hidden md:flex justify-center gap-2 mt-2">
+                <a
+                  href="tel:+77073293969"
+                  className="inline-flex items-center justify-center px-4 py-2 text-white bg-blue-600 rounded-md text-xs sm:text-sm font-semibold tracking-wide hover:bg-blue-700 transition"
+                >
+                  +7 (707) 329-39-69
+                </a>
+
+                <a
+                  href="tel:+77015588033"
+                  className="inline-flex items-center justify-center px-4 py-2 text-white bg-blue-600 rounded-md text-xs sm:text-sm font-semibold tracking-wide hover:bg-blue-700 transition"
+                >
+                  +7 (701) 558-80-33
+                </a>
+              </div>
+            </div>
 
             {/* --- ВОТ ЭТОТ БЛОК БЫЛ ПУСТЫМ, ТЕПЕРЬ ОН ВОССТАНОВЛЕН --- */}
             <nav className="hidden lg:flex items-center space-x-8">
