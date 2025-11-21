@@ -65,10 +65,10 @@ const HomePage = ({ setCurrentPage }) => {
               </h1>
               <p className="text-lg lg:text-xl leading-relaxed text-blue-100 max-w-2xl">
                 {t("hero_subtitle")} <br />
-                {t("hero_slogan")}
+                {/* {t("hero_slogan")} */}
               </p>
 
-              <div className="space-y-4">
+              <div className="flex flex-col space-y-4">
                 <button
                   onClick={() => setSelectedDoc(selectedDoc ? null : "list")}
                   className="inline-flex items-center space-x-2 bg-yellow-500 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-lg"
@@ -79,9 +79,17 @@ const HomePage = ({ setCurrentPage }) => {
 
                 <button
                   onClick={() => setCurrentPage("reestr")}
-                  className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-500 transition-all transform hover:scale-105 shadow-lg mt-4 sm:mt-0 sm:ml-4"
+                  className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-500 transition-all transform hover:scale-105 shadow-lg"
                 >
                   <span>{t("hero_button_reestr")}</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={() => setCurrentPage("legislation")}
+                  className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-500 transition-all transform hover:scale-105 shadow-lg"
+                >
+                  <span>Законодательство об арбитраже РК</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
 

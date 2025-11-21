@@ -20,6 +20,7 @@ import SchemaPage from "./pages/DocumentsPage/SchemaPage";
 import ArbitrazhSoglasheniePage from "./pages/DocumentsPage/ArbitrazhSoglasheniePage";
 import RaspiskaPage from "./pages/DocumentsPage/RaspiskaPage";
 import UniversalnayaOgovorkaPage from "./pages/DocumentsPage/UniversalnayaOgovorkaPage";
+import LegislationPage from "./pages/LegislationPage/LegislationPage";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 
@@ -66,6 +67,8 @@ function App() {
         return <RaspiskaPage />;
       case "universal_ogovorka":
         return <UniversalnayaOgovorkaPage />;
+      case "legislation":
+        return <LegislationPage />;
       default:
         return <HomePage setCurrentPage={setCurrentPage} />;
     }

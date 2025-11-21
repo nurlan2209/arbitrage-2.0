@@ -131,7 +131,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
             </div>
 
             {/* --- ВОТ ЭТОТ БЛОК БЫЛ ПУСТЫМ, ТЕПЕРЬ ОН ВОССТАНОВЛЕН --- */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8 mr-6">
               {navItems.map((item) => (
                 <div key={item.key} className="relative">
                   {item.isDropdown ? (
