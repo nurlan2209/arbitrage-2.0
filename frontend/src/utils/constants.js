@@ -2,7 +2,7 @@
 export const COMPANY_INFO = {
   name: "Международный центр Арбитражных решений",
   shortName: "МЦ Арбитраж",
-  address: "г. Астана, Проспект Туран, дом 83/1, офис 122",
+  address: "г. Астана, Проспект Туран, дом 83/2, НП 4",
   phones: ["+7 (707) 329-39-69", "+7 (701) 558-80-33"],
   email: "arbitragerk.kz@gmail.com",
   website: "https://arbitragerk.kz",

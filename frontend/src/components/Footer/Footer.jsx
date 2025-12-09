@@ -40,7 +40,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-200 mt-1 flex-shrink-0" />
                 <div className="text-sm leading-relaxed">
-                  г. Астана, Проспект Туран, дом 83/1, офис 122
+                  г. Астана, Проспект Туран, дом 83/2, НП 4
                 </div>
               </div>
 
